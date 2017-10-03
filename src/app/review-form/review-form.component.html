@@ -1,0 +1,55 @@
+<h3 *ngIf = "selectedSpeaker">
+  Speaker: <span [innerText]="selectedSpeaker.name"></span> |
+  Presentation: <span [innerText]="selectedPresentation.name"></span>
+</h3>
+
+<h1 class="reportHeading" *ngIf="view === 'review-report'">Average Review Report </h1>
+<app-back-btn [backPage]="previousView" [params]="previousView === 'presentation-history'?{previousView: 'dashboard'}:{}"></app-back-btn>
+
+<div class="reviewForm" *ngIf="reviewItems && activeItemRating">
+  <div class="row reviewItem" *ngFor="let item of reviewItems; let i = index">
+    <div class="reviewQuestion col-md-7">
+      <app-speech-bubble>
+        {{item.name}}
+        <div class="infoBtn">
+          <button
+            type="button"
+            class="btn btn-link btn-sm float-right"
+            [popover]="item.info"
+            placement="left"
+            triggers="focus">ℹ️
+          </button>
+        </div>
+      </app-speech-bubble>
+    </div>
+    <div class="ratingBlock col-md-5">
+      <div class="ratingStars">
+        <rating [(ngModel)]="activeItemRating[i].rating" max="5" [readonly]="view === 'review-report'"
+        stateOn="fa fa-star" stateOff="fa fa-star-o"></rating>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="view === 'review-form'" class="text-center">
+    <button type="button" class="btn btnColor btn-lg" (click)="submitReview(smModal)">Submit ⏏</button>
+  </div>
+
+  <div bsModal #smModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title pull-left">Review Submitted</h4>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="smModal.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          You can modify and resubmit your review any time.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

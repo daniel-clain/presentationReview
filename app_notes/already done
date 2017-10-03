@@ -1,0 +1,23 @@
+* calculate and store average report
+* store user id in local storage.
+  Use of id:
+    - when you submit a review your user id is stored against the review
+    - when the user goes to edit an existing speaker, the reviews list for that speaker is checked, if one of the reviews has a user id that matches your user id the, instead of loading an empty review -> load the existing review instead
+    - if the user edits the review and submits then the review is saved overwriting the original review, a new average report is generated based on the changes
+
+* presentation in the list will be removed after 3 days, !!there will be an archive button that will expose older presentations
+
+
+* if you claim a speaker with 'this is me', the name for the speaker will be registered as an alias in your local storage. Whenever a speaker (that you have not already claimed) is listed and the name value is a match to one of the aliases stored against your name - the app with prompt with user with a tooltip that says 'is this you?' with a little tick or cross. if you hit the cross it wont prompt you again. if you hit the tick it will claim that speaker instance under your identification
+
+
+* if you claim a speaker with 'this is me', if there is already a user who has claimed this speaker then the app with prompt you, 'this speaker has already been claimed, are you sure you want to claim and notify the other user?'. If a speaker has been claimed by multiple users then an error message will show for each user - 'this speaker has been also claimed by' and then it will list the conflicting users email and userId. User has 2 options, either reliquish ownership
+
+
+* if you identify yourself as a speaker in a presentation then you can select a checkbox that says, "this speaker is me" - this speaker instance will be added to your list of presentations. On the main page there will be a button that says review my presentation history -> this view will show a list of all presentations youve done, each item will show the presentation name, the date and the overall average star rating for all review items combined. If you click into a reveiw item then you can look at the review item for the i presentation (it would display in the same way you usually view it.
+
+* when going back to the selection menu, maintain which presentation block was opened
+* presentation history - show overall star rating
+
+* if no presentations show, have placeholder message
+

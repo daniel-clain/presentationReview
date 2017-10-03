@@ -1,0 +1,93 @@
+
+<div id="userManagement" class="row justify-content-between">
+  <ng-template #registerEmailBlock>
+      <div class="input-group  col-6">
+        <span class="input-group-addon" id="registerEmail">Register Email</span>
+        <input
+          #registerEmailInput
+          (keyup.enter)="registerEmail(registerEmailInput)"
+          type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="registerEmail">
+        <span class="input-group-btn">
+          <button class="btn btnColor" type="button" (click)="registerEmail(registerEmailInput)">Submit</button>
+        </span>
+      </div>
+  </ng-template>
+
+  <accordion class="alreadyRegistered col-12" *ngIf="registeredEmail; else registerEmailBlock">
+    <accordion-group #group>
+      <div accordion-heading>
+        User Management
+        <i class="pull-right float-xs-right fa" [ngClass]="{'fa-chevron-down': group?.isOpen, 'fa-chevron-right': !group?.isOpen}"></i>
+      </div>
+      <div class="row">
+        <div class="form-controls col-md-6">
+          <div class="card-body">
+
+            <button (click)="viewPresentationHistory()" class="btn presentationHistoryBtn btnColor">Presentation History</button>
+
+            <div class="input-group">
+              <span class="input-group-addon" id="uname">Username</span>
+              <input
+                #uname
+                (keyup.enter)="setUserName(uname)"
+                type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="img" />
+              <span class="input-group-btn">
+                <button class="btn btnColor" type="button" (click)="setUserName(uname)">Submit</button>
+              </span>
+            </div>
+
+            <div class="input-group">
+              <span class="input-group-addon" id="updateEmail">Update Email</span>
+              <input
+                #email
+                (keyup.enter)="updateEmail(email)"
+                type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="updateEmail">
+              <span class="input-group-btn">
+                <button class="btn btnColor" type="button" (click)="updateEmail(email)">Update</button>
+              </span>
+            </div>
+
+            <div class="input-group">
+              <span class="input-group-addon" id="img">Profile Image</span>
+              <input
+                ng2FileSelect [uploader]="uploader"
+                type="file" class="form-control" placeholder="select a profile pic..." aria-label="Profile Image" aria-describedby="img">
+              <span class="input-group-btn">
+                <button class="btn btnColor" type="button" (click)="uploadProfileImage()">Upload</button>
+              </span>
+            </div>
+
+            <button (click)="changeUser()" class="btn">Change User</button>
+          </div>
+        </div>
+        <div class="info col-md-6">
+          <p>For the sake of ease of use, no registration/login is required to use this app. You can freely create presentations, speakers and leave reviews.</p>
+          <p>However, the app relates you to the app's data through local storage. Therefore if you wipe your local storage you will lose reference to the reviews you have left.</p>
+
+          <p>If you want to 'claim' a speaker as yourself and bind it to your user account, you will have to register your work email as a more concrete user identifier.</p>
+
+          <p>Your email will also be stored in your local storage so that you dont have to log in each time</p>
+
+          <p>There will be a 'Change User' option. This will remove your local storage so the app will treat you as a new unknow user. You can then, at this point, leave a review as a new unknown user or enter a different email which will then associate the app to this user email id. Ps, this will be very rarely used as you would only do it when someone else uses your computer.</p>
+
+          <p>Once you have registered your email:
+          * you can claim speakers
+          * you can view presentation history
+          * you can be sure you wont lose reference to your review submissions</p>
+
+          <p>Registering your email is only really necessary is you are a person who has been a speaker in a presentation. Otherwise if you are just a person doing reviews then there is no need to register.</p>
+
+          <p>Once you have registered your email you can then also set your name, whatever alias name your co-workers created your speaker instance as, once you have claimed the speaker, the name they chose will be overwritten with the name you have registered, this will enforce consistency with employee names. This also means that when any user goes to create a speaker in a presentation, the app will have a list or registered speakers and a list of all their aliases that they have had agains their name. If the user is typing in the speakers name, the auto complete will show a list of matching registered users to select from. If they select a registered user in this way it will directly associate this speaker to you.</p>
+
+          <p>Once registering an email you also have the ability to set a user profile image, this image will be used to replace the speaker icon against each speaker. I think this is a great idea for helping users identify speakers in the case where they arent sure of their name. ( maybe a 'search by user profile image' option)</p>
+
+          <p>If you've made a typo in your email then you can use 'update email', this will propagate against all entries with your old email</p>
+        </div>
+      </div>
+
+
+    </accordion-group>
+  </accordion>
+</div>
+
+

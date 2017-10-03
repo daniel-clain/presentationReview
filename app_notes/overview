@@ -1,0 +1,44 @@
+Purpose of App
+  * Help people involved in presentations to realise the various elements that make or break a good presentation.
+  * Provide constructive & anonymous criticism to the presenters of a presentation to help them realise how others experience the presentation and what areas they need to look at in order to improve
+
+
+  Why is this App important
+  * Too often people do presentations that arent so good for various reasons, people dont want to approach presenters and give them feedback thats critical and and put themselves in the spotlight.
+  * An anonymous consensus on the same points is a good way of knowing un-bias over-view, the quality of this info is reliable and can be used to improve
+  * Something needs to be done about bad presentations, if people cant take something valuable away from the presentation then whats the point
+  * Presentations equate to a lot of wages spent on all the people attending. The presentation can be a waste of money if value is not extracted
+
+
+  Main functions of the App
+  * After the presentation users go to the app and locate the presentation and presenters within it an leave a rating on various review items
+  * Speakers of the presentation can use the app the see collation of all the reviews into 1 average rating for each review item
+
+
+  Secondary features of the App
+  * Poll for what users what to see covered in a presentation - ability top create new poll topics
+  * Users have a back log of all the presentation reviews they've received, they can see how their reviews have changed over time - this could be displayed as a report in a chart
+
+
+  Minor Features
+  * Any user can create a presentation and add speakers to it
+  * When a presentation or speaker is created, websockets updates the view for all clients
+  * Data is stored in json
+  * When you use the app it allocates you an Id and puts it in local storage, when you leave a review it stores your id against the review, when you access the same presentation's speaker, you will have your id matched to your review and your review will be loaded, able for you to edit your selections.
+  * On occasion duplicate presentations might be created, there needs to be a merge/delete feature to combine or remove the wrong entry
+
+
+  UI Features
+  * Each review item is out of 5
+  * Review Items appear in the view, as each item is reviewed, the item is added to the bottom of the list and the size is decreased
+  * You can scroll up the list of review items and reset your rating
+  * Focus questions appear in TalkTalk speech bubble with stars next to them
+
+
+  Which Features should be done for the first iteration:
+  * not presentation nomination
+  * not presentation history
+  * yes - person claiming their presentation
+  * yes - presentation expiry
+
+

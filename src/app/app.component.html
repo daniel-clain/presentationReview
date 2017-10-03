@@ -1,0 +1,20 @@
+<div class="talktalkbanner container">
+  <div class="talktalklogo">
+    Wi-Fi For Some
+  </div>
+  <h1>Anonymous Pesentation Review 🙈🙉🙊</h1>
+  <div class="userEmail" *ngIf="registeredEmail" [innerText]="registeredEmail"></div>
+</div>
+
+<div class="container mainContainer">
+  <app-dashboard
+    [style.display]="currentView === 'dashboard'?'block':'none'"></app-dashboard>
+
+  <app-review-form
+  [style.display]="(currentView === 'review-form' || currentView === 'review-report')?'block':'none'"></app-review-form>
+
+  <app-presentation-history
+    [style.display]="(currentView === 'presentation-history')?'block':'none'"></app-presentation-history>
+
+
+</div>

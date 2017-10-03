@@ -1,0 +1,3 @@
+* if you apps user status is unregistered and you want to log in with a different email that already has been registered then this cant really be done without 're registering' and claiming all the 'unregistered users' items.
+* make sure that there is no chance for data loss, eg, synchronous users may take actions in a certain sequence that could overwrite eachother info
+* if multiple users do a save action at the same time will there be a conflict in saving the data? Darren says no, node has synchronous streams

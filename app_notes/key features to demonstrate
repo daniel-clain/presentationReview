@@ -1,0 +1,11 @@
+* app will remember a user after they close the app
+* if you register your email - then clear your local storage - then use the app (leave reviews, claim speaker instances), the app will register your new changes to a new user id - then you re-register your email and now all the old one and all the new ones are reunited.
+* claim and unclaim, indication if there is a conflict, cant review your own speaker instance, cant own 2 speakers in one presentation, all the ones you mark as yourself will be added to your history
+* only shows recent presentations
+* when you look at report stars are readonly
+* responsivness changes nicely
+* websockets shows instant updates on new pres, new speaker, claim and unclaim. whenever anyone submits a review it is added instantly to other peoples
+* when multiple users leave a review for the same speaker, the average report should clearly show the average results
+
+
+

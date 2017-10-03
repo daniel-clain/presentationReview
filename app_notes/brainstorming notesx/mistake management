@@ -1,0 +1,30 @@
+Users can create a presentation and/or speaker. But there is no delete or edit option
+
+Mistakes can be:
+* presentation/speaker typo
+* multiple users making duplicate entries
+* got the right name muddled up
+etc
+
+Why do mistake entries have to be dealt with
+* the ui will become cluttered and confusing as a result of mistakes
+* mistakes can be grown upon with quality entires, dont want these quality entries to be lost.
+* if people see duplicates when they will not know the right one to use
+* users who are looking to claim their speaker instance might not be sure which one is them
+
+Issues
+* I dont want the ui to be cluttered with secondary controls, primary controls should be most prominenet (primary: all features realative to the core user journey, secondary: all the helper features to facilitate good ux)
+* Items appear instantly on creation thanks to websockets, which means people can instantly start using a mistake before the mistake is realised
+* i dont want to give any user the ability to delete a presentation or speaker
+* i dont want mistakes to just sit in the list with no way of removing them
+
+
+
+Proposed solution
+* 3 user consensus strategy:
+  - a mistake can be marked as a mistake by any user
+  - when the mistake is marked 3 times the resolution will take place
+  - resolutions can either be: delete(not needed a all), merge(duplicate and both contain valuable records), update(typo in name)
+
+* I think 3 user consensus is only necessary IF the record has had any data added to it by other users.
+eg, if a user creates a presentation and its a typo? they should be able to delete/update by themselves. (only the creator can delete/update)

@@ -1,0 +1,40 @@
+* rework the way pages are navigated to, all views retain state, all have an on open func.
+
+
+* get project running in docker node https://github.com/nodejs/docker-node/blob/master/README.md#how-to-use-this-image
+* setup cucumber, sonarqube, app dynamics
+* manage user - if user has already set name and username, show there instead with a change button
+
+* what things need to happen if a user claims a speaker -> rerun generate report against each speaker instance that is a match, this should then exclude the user;
+* what should happen if a user registeres their email? -> code should run through all reports and claimed speakers that have a match on that users id, and then of all the returned reports, the new email should then be also added to each relative speaker/report
+* Idea: user profile pic and name. The app was designed to be super simple and minimal - and therefore adding things like pic and name seemed like unnecessary overhead. However, i see there being a lot of ux value to having pic and name added. Imagine if anyone added in a presenters name, and it prompts the user a match on registered user names, once selecting one of the prompts, the persons registered name is shown with their profile pic instead of generic speaker icon
+
+* find out how bad it is to store data in json files rather than DB or other
+* reduce the sizing and make the ui less daniel and more professional
+
+* analyze how the data is managed and try to ensure there is no risk of data loss or data corruption
+
+* maybe modify review form so that it presents 1 review item at a time to the reviewer, reviewer has no need to scroll and focus on 1 at a time.
+* a person should be blocked from leaving a review on presentation that they have claimed. If they have already left a review against their own name and then claim the review, then the review they left will be removed for list of submitted reviews.
+* fix tooltips so they point at the icon and so that they appropriatley sized and positioned
+* when a user enters and email, the system goes through all presentation's speakers - all the ones where the user id is a match, it then also applies the email to claimedUserEmails list - this way if ever the users local storage is wiped - the next time they enter thier email the app will search all presentation's speakers and look for a match on the email aswell as the new user id
+* if the user has already already claimed a speaker in a presentation, they should not be able to claim another speaker in the same presentation (first they would have to click the 'not me...' btn - thus re enabling the other options)
+
+
+* each review item should have an id, review items cant be edited. If a new review item is created then it gets a new id, if a review item is delete, if the item already has reviews submitted against it, it wont be deleted, just archived. Review items need to be managed in an admin section under a 'manage review items' option. Here items can be added and deleted.
+
+* the db/json should not store more than it needs to -> (currently) whenever a review is submitted, the question the answer and the rating. Only the rating and the review item id should be stored.
+
+
+* create presentation topic submit and upvote feature:
+  - if you think of a presentation topic that you would like to see covered you can enter a brief topic/category and submit it to a larger list
+  - you can look through a list of proposed presentation topics, each will have a checkbox next to each item, if you would like to see the item covered, check it
+  - this section will also show the top 3 topics that everyone has voted up, it will be obvious to everyone what topics should be presented next, someone could take the initiative to plan a presentation based on this
+  - (topics that have existed for over a month with only 1 vote will be removed from the list. any one can propose an item be removed from the list because it is completed, it will be removed from theirs but not others, if 3 people mark a presentation as completed then it will be removed from everyones list
+
+*the system doesnt force you to identify yourself in order to use the app - this is to help with ease of use, just pick it up and go. However in order to stop users for leaving multiple reviews for the same speaker - the concept of local storage id is implemented. The weakness of this is that its only an id and isnt a way to properly identify anyone - if that local storage id got cleared then the user will lose connection to all the reviews theyve submitted. A bigger problem is if someone wants to view their presentation history, the app has to know all the presentations theyve done, this can only be achieved by users claiming that the speaker listed is themselves, but then storing these against a local storage id is even riskier because if they clear their local storage they will lose connection to all the reviews theyve had done. To address this issue i propose that the app allows the user to register their email address at any time, if the user does do this, it runs through all items assosciated with their local storage id, and now sets the users email address in its place - that way even if they lose their local storage - they can reenter their email and then that will be used to reidentify all their items.
+* presentation and user - merge the same, delete and edit.
+
+
+
+* right now data related server calls are sending and receiving entire data objects, eventually this should be changed so that only the minimal amount of data is transferred in the transactions.

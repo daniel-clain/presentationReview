@@ -1,0 +1,47 @@
+[
+  {
+    "reviewItemId": 111,
+    "name": "Quality of Information",
+    "info": "Did this presentation have quality information on what was being presented?"
+  },
+  {
+    "reviewItemId": 222,
+    "name": "Easy to follow",
+    "info": "Did you follow what the speaker was talking about throughout the presentation?"
+  },
+  {
+    "reviewItemId": 333,
+    "name": "Speaker explained things well",
+    "info": "Did the speaker explain the main ideas in a clear and understandable way?"
+  },
+  {
+    "reviewItemId": 444,
+    "name": "Visuals were useful",
+    "info": "xxxxxbenefit"
+  },
+  {
+    "reviewItemId": 555,
+    "name": "Good examples & demonstration",
+    "info": "xxxxxbenefit"
+  },
+  {
+    "reviewItemId": 666,
+    "name": "Value of the presentation is clear",
+    "info": "xxxxxbenefit"
+  },
+  {
+    "reviewItemId": 777,
+    "name": "Speaker engaged the audience",
+    "info": "xxxxxbenefit"
+  },
+  {
+    "reviewItemId": 888,
+    "name": "Clear on how to take action",
+    "info": "xxxxxbenefit"
+  },
+  {
+    "reviewItemId": 999,
+    "name": "Presentation was well prepared",
+    "info": "xxxxxbenefit"
+  }
+]

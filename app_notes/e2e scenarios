@@ -1,0 +1,3 @@
+* User starts app
+* Call to the server is made to get the json object for the presentation review data
+* User is shown selection menu with all the presentations created within the last 24 hours

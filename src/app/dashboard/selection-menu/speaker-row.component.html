@@ -1,0 +1,35 @@
+
+<span class="speakerIcon"><img src="./assets/images/speaker_icon.png"/></span>
+{{speaker.name}}
+
+<div class="rightOptions">
+
+  <button
+    class="viewReportBtn btn btn-sm"
+    *ngIf="claimedByUser"
+    type="button"
+    (click)="viewReport($event)">📄&nbsp; View Report</button>
+  <button
+    class="claimSpeakerBtn btn btn-sm"
+    *ngIf="!claimedByUser"
+    type="button"
+    (click)="claimSpeaker($event)">😲&nbsp; This is me!</button>
+  <button
+    class="relinquishSpeakerBtn btn btn-sm"
+    *ngIf="claimedByUser"
+    type="button"
+    (click)="relinquishSpeaker($event)">🤔&nbsp; not me...</button>
+
+  <span
+    class="claimSpeakerMsg"
+    *ngIf="claimedByUser && !claimedBySomeoneElse"
+    title="Claimed!">😎</span>
+  <span
+    class="conflictSpeakerMsg"
+    *ngIf="claimedByUser && claimedBySomeoneElse"
+    title="conflict...">😖</span>
+  <span
+    class="someoneElseSpeakerMsg"
+    *ngIf="!claimedByUser && claimedBySomeoneElse"
+    title="someone else claimed">👽</span>
+</div>

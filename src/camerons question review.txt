@@ -1,0 +1,114 @@
+reviewItems = [
+    5{
+      name: 'quiet vs loud',
+      info: 'if you can’t hear then you can’t benefit'
+    },
+    4{
+      name: 'incoherent & abstruse vs eloquent & fluent',
+      info: 'general quality of how you’re talking is strongly relative to audience benefiting from what you say'
+    },
+    3{
+      name: 'apprehensive vs confident',
+      info: 'lack of confidence can strongly affect how eloquent & fluent you are'
+    },
+    4{
+      name: 'voice tone, body language, enthusiasm',
+      info: 'this has a much bigger effect that people realize, this is key to engaging your audience, if your voice and body language are monotone - then you will put everyone to sleep'
+    },
+    5{
+      name: 'visual size',
+      info: 'are the visuals large enough to understand clearly'
+    },
+    4{
+      name: 'amount of reading',
+      info: 'the visuals should cover things that the speaker can not, or to emphasize a point, it shouldn’t be for long reading'
+    },
+    3{
+      name: 'helpful visuals',
+      info: 'of the visuals presented how much does it aid the presentation - relevance, value'
+    },
+    3{
+      name: 'visuals compliments what is being spoken about',
+      info: 'if the visuals are not relative to what the speaker is talking about then this can be misleading, maybe when the speaker is just talking there should be no visual at all'
+    },
+    4{
+      name: 'controls the flow of the presentation',
+      info: 'audience can bring up tangents; questions that lead to discussion can consume a lot of presentation time; audience can ‘jump the gun’ and interrupt the plan of your presentation. This can affect weather you cover your whole presentation in the time box'
+    },
+    3{
+      name: 'questions answered to whole audience',
+      info: 'when a question is asked, the presenter should re-ask the question in a ‘presentation friendly’ way so that all audience can follow and understand the answer'
+    },
+    4{
+      name: 'effectively keep the audience engaged',
+      info: 'e.g. asking the audience rhetorical questions can get them thinking on the issue, when they realize the answer isn’t clear then they will be more engaged with your explanation/demonstration. Involvement means more memorable'
+    },
+    4{
+      name: 'was there an introduction that laid the foundation and overview of the presentation',
+      info: 'for an inexperience person it is important to ‘paint the picture’ of the scope of the presentation, this shows the audience the direction you are headed in your presentation, which makes it easier to follow.'
+    },
+    {
+      name: 'jargon, \'big words\' and too technical',
+      info: 'its easy for an inexperienced person to become lost if there is unexplained jargon and overly technical references, explain technical concepts with simple words, analogys and diagrams'
+    },
+    {
+      name: 'use of simple familiar words vs \'big words\'',
+      info: 'sometimes its just as easy to explain things with simple words rather than big words, excessive use of big words can lose people and shouldn\'t be done jus to make yourself seem smart, make it easy for your audience to follow'
+    },
+    {
+      name: 'cover all relative info regardless to simplicity',
+      info: 'to an experienced person, some thing seem so small and simple that they overlook them, however sometimes these simple things are key to understanding the the big picture'
+    },
+    {
+      name: 'give opportunities for people to clarify their understanding',
+      info: 'when a person is lost/not following, they may take the initiative to try and clarify it for themselves, its hard for them to take this initiative if not given the opportunity'
+    },
+    {
+      name: 'every time a checkpoint is covered do a brief summary before continuing to next point ',
+      info: 'finishing the point with a summary will help them remember that point, without this its easy for all the info to blur together and it is hard the extract main points'
+    },
+    {
+      name: 'does the presenter demonstrate the ‘real world’ usage of of the topic',
+      info: 'its easy to talk about things in a theoretical way, a small demo example might be clear and simple, but the point will really click if they see a real world usage demo'
+    },
+    {
+      name: 'does the presenter have a high level of knowledge on the topic',
+      info: 'the presenter should only be delivering accurate and correct informtion, if not then there could be incorrect teaching, confusion, excessive questions and open debate. This will chew up the time box and the presentation will offer little value - maybe negative value'
+    },
+    {
+      name: 'clear, concise vs convoluted, longwinded',
+      info: 'stick to the main point and cover all the need to know info, avoid adding in extra ‘fluff’ that dilutes the main point '
+    },
+    {
+      name: 'covers the main points',
+      info: 'none of the main points should be left out'
+    },
+    {
+      name: 'demonstrate what problem this idea addresses',
+      info: 'its easier to appreciate the value of the presentation if you can identify the need for it'
+    },
+    {
+      name: 'verify the value of the presentation',
+      info: ' people want to leave the presentation knowing they got some value out of it, make sure that value is clear'
+    },
+    {
+      name: 'quality easy to follow examples',
+      info: 'every point you make seems theoretical until demonstrated with clear example, don’t just make points - prove them'
+    },
+    {
+      name: 'clear instructions and process',
+      info: 'the audience wants to know what they can do to action the value of the presentation, if you don’t demonstrate what to do then how can they benefit'
+    },
+    {
+      name: 'presentation structure',
+      info: 'e.g. (intro -> main point -> foundation -> relevant points -> main point -> conclusion) - a structured presentation is a lot easier to follow that one that is not, its also better for time boxing, and delivering the info as it is required'
+    },
+    {
+      name: 'how prepared is the presenter',
+      info: 'if the presenter isnt well prepared then the quality of the presentation will suffer'
+    },
+    {
+      name: 'simple vs overwhelming',
+      info: 'it is easy to retain short simple information, if you are overwhelmed with a lot of info it will be hard to retain, especially longer term. If a lot of info is needed to be delivered then maybe have a series of presentation where each one covers a main section of the overall point.'
+    }
+  ];

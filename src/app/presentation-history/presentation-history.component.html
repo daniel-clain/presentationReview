@@ -1,0 +1,23 @@
+
+<h3>Your Presentation History</h3>
+<app-back-btn [backPage]="previousView"></app-back-btn>
+<div class="container">
+  <div class="row">
+    <ul class="list-group w-100">
+      <li
+        class="list-group-item w-100"
+        *ngFor="let presentation of userPresentations"
+        (click)="presentationSelected(presentation)">
+        {{presentation.name}}
+        <rating
+          [(ngModel)]="presentationTotalStars[presentation.id]"
+          max="5"
+          [readonly]="true"
+          stateOn="fa fa-star"
+          stateOff="fa fa-star-o">
+        </rating>
+        <span>{{presentation.id | idToDate}}</span>
+      </li>
+    </ul>
+  </div>
+</div>

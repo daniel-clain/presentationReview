@@ -1,0 +1,142 @@
+<h3>Select a Presentation and a Speaker</h3>
+  <div class="row justify-content-between">
+    <div class="newPresentation col-md-6">
+
+      <div class="input-group">
+        <span class="input-group-addon" id="newPresentation">New Presentation</span>
+        <input
+          #presentationNameInput
+          (keyup.enter)="addPresentation(presentationNameInput)"
+          class="form-control"
+          aria-describedby="newPresentation"
+          type="text">
+        <span class="input-group-btn">
+          <button
+            class="btn btnColor"
+            type="button"
+            (click)="addPresentation(presentationNameInput)">Add</button>
+        </span>
+      </div>
+    </div>
+    <div class="rightButtons col-md-6">
+      <div class="aboutBtn">
+        <button type="button" class="btn btnColor float-right"
+                (click)="isCollapsed = !isCollapsed">About this app <small>(toggle)</small>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+<div class="about card card-block card-info"
+  [collapse]="true">
+     <h4>About this app</h4>
+
+       <ul>
+         <li>Give an anonymous review with constructive criticism.</li>
+         <li>After a presentation, anyone who attended it can go back to their desk and make an anonymous review on the presentation's speakers.</li>
+          <li>Rate various aspects of a speakers presentation, the typical things that are important for a good presentation.</li>
+          <li>Each review item is out of 5 stars, where 1 is a low rating and 5 is the best rating. If you leave a review item unrated then it will not be included in the submission.</li>
+          <li>After a review is submitted, it is added to a list of other people's reviews. The average rating for each item is calculated and an "Average Review" report will be generated. This Average Review report will give a strong indication of what the majority of people thought about the presentation.</li>
+          <li>A user can identify that a speaker in the app is indeed themselves and assert ownership of this speaker instance. They can click a button next to the speaker that basically says: 'I am this speaker'. The speaker will be registered against your userID/email and now the speaker is linked to you as a user. </li>
+          <li>All users who have done presentations can find a link that says "Your Presentation History". This link will show a list of all past presentations with the date and the overall star rating. You can click into each presentation and review each review item. This will allow users to get an idea of how they are improving between each presentation they do.</li>
+         <li>The Presentation List only shows presentations created within the last 2 days.</li>
+         <li>Users are bound to the app's data using local storage variables. If you wipe your local storage you will lose all this binding. However if you register your email, if you lose your local storage - you can enter your email again and reconnect to your relative data.</li>
+       </ul>
+</div>
+
+<div class="row justify-content-between">
+
+
+  <ng-template #noPresentationsBlock>
+    <div class="col-12">
+      <h3>No presentations have been created within the last 2 working days.</h3>
+    </div>
+  </ng-template>
+
+  <accordion class="presentationList col-12" *ngIf="presentationsList && presentationsList.length !== 0; else noPresentationsBlock" [closeOthers]='true'>
+    <accordion-group #group  *ngFor="let presentation of presentationsList | recentPresentations; trackBy:trackByPresentationId">
+      <div accordion-heading>
+        &#10026; <b>{{presentation.name}}</b>
+        <i class="pull-right float-xs-right fa" [ngClass]="{'fa-chevron-down': group?.isOpen, 'fa-chevron-right': !group?.isOpen}"></i>
+      </div>
+        <div class="input-group">
+          <span class="input-group-addon" id="newSpeaker">New Speaker</span>
+          <input
+            #speakerNameInput
+            (keyup.enter)="addSpeaker(speakerNameInput, presentation)"
+            class="form-control"
+            aria-describedby="newSpeaker"
+            type="text">
+          <span class="input-group-btn">
+              <button
+                class="btn btnColor"
+                type="button"
+                (click)="addSpeaker(speakerNameInput, presentation)">
+                Add
+              </button>
+            </span>
+        </div>
+      <div class="container">
+        <div class="row">
+          <ul class="list-group w-100">
+            <li
+              class="list-group-item w-100"
+              *ngFor="let speaker of presentation.speakers; trackBy:trackBySpeakerId"
+              (click)="speakerSelected(speaker.id, presentation.id)"
+              (keyup.enter)="speakerSelected(speaker.id, presentation.id)">
+              <app-speaker-row [presentation]="presentation" [speaker]="speaker"></app-speaker-row>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </accordion-group>
+  </accordion>
+</div>
+
+
+
+
+  <!--ngb-accordion closeOthers="false">
+    <ngb-panel *ngFor="let presentation of presentationsList | recentPresentations; trackBy:trackByPresentationId">
+      <ng-template ngbPanelTitle>
+        <span>&#10026; <b>{{presentation.name}}</b></span>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <div class="input-group">
+          <span class="input-group-addon" id="newSpeaker">New Speaker</span>
+          <input
+            #speakerNameInput
+            (keyup.enter)="addSpeaker(speakerNameInput, presentation)"
+            class="form-control"
+            aria-describedby="newSpeaker"
+            type="text">
+          <span class="input-group-btn">
+            <button
+            class="btn btnColor"
+            type="button"
+            (click)="addSpeaker(speakerNameInput, presentation)">
+              Add
+            </button>
+          </span>
+        </div>
+        <div class="container">
+          <div class="row">
+            <ul class="list-group w-100">
+              <li
+              class="list-group-item w-100"
+              *ngFor="let speaker of presentation.speakers; trackBy:trackBySpeakerId"
+              (click)="speakerSelected(speaker.id, presentation.id)"
+              (keyup.enter)="speakerSelected(speaker.id, presentation.id)">
+                <app-speaker-row [presentation]="presentation" [speaker]="speaker"></app-speaker-row>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion-->
+
+
+
+
