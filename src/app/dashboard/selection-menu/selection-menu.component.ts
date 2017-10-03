@@ -14,13 +14,14 @@ export class SelectionMenuComponent implements OnInit {
 
   presentationsList: Presentation[];
   registeredEmail: string;
+  isCollapsed: false;
 
   constructor(
     private reviewService: ReviewsService,
     private viewService: ViewService,
     private userService: UserService) {
 
-    this.reviewService.serverUpdatePresentation().subscribe(
+    this.reviewService.serverDataUpdateBroadcastSubject.subscribe(
       (data: Presentation[]) => this.presentationsList = data
     );
     this.registeredEmail = this.userService.userEmail;

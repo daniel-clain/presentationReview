@@ -12,16 +12,14 @@ export class ReviewsService {
 
   constructor(private websocket: WebsocketService, private userService: UserService) {
     this.websocket.serverDataUpdateBroadcast().subscribe(
-      (returnData: WebSocketData) => {
+      (returnData: Presentation[]) => {
+        this.presentations = returnData;
         this.serverDataUpdateBroadcastSubject.next(returnData);
         console.log('reviewService serverUpdatePresentation');
       }
     );
   }
 
-  serverUpdatePresentation(): Subject<any> {
-    return this.serverDataUpdateBroadcastSubject;
-  }
 
   private resolveWhenSaveSuccessful(resolve, reject) {
     const subscription = this.websocket.serverSaveSuccessful().subscribe(
@@ -159,7 +157,7 @@ export class ReviewsService {
     let averageReview: ReviewItemRating[] = [];
     const userService = this.userService;
     const dontIncludeReviewsLeftByTheSpeaker = function(submittedReview: Review): Boolean {
-      return !(submittedReview.reviewerId === userService.userId || (submittedReview.reviewerEmail && submittedReview.reviewerEmail === userService.userEmail));
+      return !(submittedReview.reviewerEmail && userService.userEmail && submittedReview.reviewerEmail === userService.userEmail);
     };
     const loopThroughEachReviewAndTotalTheRatingForEachReviewItem = function(reviews){
       for (let i = 1; i < reviews.length; i++) {
@@ -185,12 +183,13 @@ export class ReviewsService {
       }
     };
     const num = this.checkIfUserHasAlreadySubmittedAReview(speaker);
-    let reviews: Review[];
+    const reviews: Review[] = speaker.submittedReviews.map(x => Object.assign({}, x));
     if (!isNaN(num)){
-      reviews = speaker.submittedReviews.map(x => Object.assign({}, x));
       reviews.splice(num, 1);
     }
-
+    if (!(reviews.length > 0)){
+      return;
+    }
     averageReview = reviews[0].reviewItems.map(x => Object.assign({}, x));
     if (reviews.length > 1) {
       loopThroughEachReviewAndTotalTheRatingForEachReviewItem(reviews);
@@ -203,7 +202,7 @@ export class ReviewsService {
   checkIfUserHasAlreadySubmittedAReview(speaker: Speaker): number {
     const reviews: Review[] = speaker.submittedReviews;
     for (let i = 0; i < reviews.length; i++) {
-      if (reviews[i].reviewerId === this.userService.userId || (this.userService.userEmail && reviews[i].reviewerEmail === this.userService.userEmail)) {
+      if (reviews[i].reviewerId === this.userService.userId || (this.userService.userEmail && this.userService.userEmail && reviews[i].reviewerEmail === this.userService.userEmail)) {
         return i;
       }
     }

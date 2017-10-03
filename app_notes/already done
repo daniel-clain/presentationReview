@@ -5,7 +5,7 @@
     - when the user goes to edit an existing speaker, the reviews list for that speaker is checked, if one of the reviews has a user id that matches your user id the, instead of loading an empty review -> load the existing review instead
     - if the user edits the review and submits then the review is saved overwriting the original review, a new average report is generated based on the changes
 
-* presentation in the list will be removed after 3 days, !!there will be an archive button that will expose older presentations
+* presentation in the list will be removed after 2 work days, !!there will be an archive button that will expose older presentations
 
 
 * if you claim a speaker with 'this is me', the name for the speaker will be registered as an alias in your local storage. Whenever a speaker (that you have not already claimed) is listed and the name value is a match to one of the aliases stored against your name - the app with prompt with user with a tooltip that says 'is this you?' with a little tick or cross. if you hit the cross it wont prompt you again. if you hit the tick it will claim that speaker instance under your identification
@@ -20,4 +20,28 @@
 * presentation history - show overall star rating
 
 * if no presentations show, have placeholder message
+* rework the way pages are navigated to, all views retain state, all have an on open func.
+
+* get project running in docker node https://github.com/nodejs/docker-node/blob/master/README.md#how-to-use-this-image
+
+* what things need to happen if a user claims a speaker -> rerun generate report against each speaker instance that is a match, this should then exclude the user;
+
+* what should happen if a user registeres their email? -> code should run through all reports and claimed speakers that have a match on that users id, and then of all the returned reports, the new email should then be also added to each relative speaker/report
+
+* reduce the sizing and make the ui less daniel and more professional
+
+* a person should be blocked from leaving a review on presentation that they have claimed. If they have already left a review against their own name and then claim the review, then the review they left will be removed for list of submitted reviews.
+
+* when a user enters and email, the system goes through all presentation's speakers - all the ones where the user id is a match, it then also applies the email to claimedUserEmails list - this way if ever the users local storage is wiped - the next time they enter thier email the app will search all presentation's speakers and look for a match on the email aswell as the new user id
+* if the user has already already claimed a speaker in a presentation, they should not be able to claim another speaker in the same presentation (first they would have to click the 'not me...' btn - thus re enabling the other options)
+
+
+* the db/json should not store more than it needs to -> (currently) whenever a review is submitted, the question the answer and the rating. Only the rating and the review item id should be stored.
+
+*the system doesnt force you to identify yourself in order to use the app - this is to help with ease of use, just pick it up and go. However in order to stop users for leaving multiple reviews for the same speaker - the concept of local storage id is implemented. The weakness of this is that its only an id and isnt a way to properly identify anyone - if that local storage id got cleared then the user will lose connection to all the reviews theyve submitted. A bigger problem is if someone wants to view their presentation history, the app has to know all the presentations theyve done, this can only be achieved by users claiming that the speaker listed is themselves, but then storing these against a local storage id is even riskier because if they clear their local storage they will lose connection to all the reviews theyve had done. To address this issue i propose that the app allows the user to register their email address at any time, if the user does do this, it runs through all items assosciated with their local storage id, and now sets the users email address in its place - that way even if they lose their local storage - they can reenter their email and then that will be used to reidentify all their items.
+
+
+
+
+
 

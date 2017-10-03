@@ -141,11 +141,11 @@ app-selection-menu {
     .card-block.about{
         margin-bottom:20px;
         color:#fff;
-        background-color: lighten( $blue, 20% );
-        border-color: lighten( $blue, 15% );
+        background-color: $blue;
+        border-color: darken( $blue, 5% );
         padding: 1rem;
           li {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
           }
     }
     .aboutBtn {
@@ -310,10 +310,15 @@ app-speech-bubble {
     position: absolute;
     left: 0;
     top: 0;
-    padding-left: 180px;
-    padding-top: 30px;
+    padding-left: 160px;
+    padding-top: 50px;
   }
   .userEmail {
+    position: absolute;
+    top: 1.8rem;
+    right: 1rem;
+  }
+  .userName {
     position: absolute;
     top: 0.5rem;
     right: 1rem;

@@ -19,7 +19,7 @@ export class SpeakerRowComponent implements OnInit {
     private userService: UserService,
     private viewService: ViewService,
     private reviewService: ReviewsService) {
-    userService.userEmailUpdateEvent().subscribe(() => this.checkIfClaimed());
+    userService.emailUpdateSubject.subscribe(() => this.checkIfClaimed());
   }
 
   ngOnInit() {

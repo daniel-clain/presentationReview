@@ -56,10 +56,12 @@ export class PresentationHistoryComponent implements OnInit, CanBeNavigatedTo {
       if (this.reviewService.checkIfUserMatchesSpeaker(speaker)) {
         let totalStars = 0;
         const report = this.reviewService.generateReport(speaker);
-        report.forEach((reportItem: ReviewItemRating) => {
-          totalStars = totalStars + reportItem.rating;
-        });
-        this.presentationTotalStars[presentation.id] = totalStars / report.length;
+        if (report){
+          report.forEach((reportItem: ReviewItemRating) =>{
+            totalStars = totalStars + reportItem.rating;
+          });
+          this.presentationTotalStars[presentation.id] = totalStars / report.length;
+        }
       }
     }));
 

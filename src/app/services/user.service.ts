@@ -10,6 +10,7 @@ export class UserService {
   userName: string;
 
   emailUpdateSubject: Subject<any> = new Subject();
+  userNameUpdateSubject: Subject<any> = new Subject();
 
   constructor() {
     this.userId = localStorage.getItem('userId');
@@ -21,8 +22,9 @@ export class UserService {
     if (userEmail) {
       this.userEmail = userEmail;
     }
-    if (localStorage.getItem('userName')){
-      this.userName = name;
+    const userName = localStorage.getItem('userName');
+    if (userName){
+      this.userName = userName;
     }
   }
 
@@ -33,22 +35,23 @@ export class UserService {
     this.emailUpdateSubject.next();
   }
 
-  userEmailUpdateEvent(): Subject<any>{
-    return this.emailUpdateSubject;
-  }
   changeUser(){
     localStorage.removeItem('userEmail');
+    localStorage.removeItem('userName');
     localStorage.removeItem('userId');
 
     this.userEmail = undefined;
+    this.userName = undefined;
     this.userId = String(new Date().getTime());
     localStorage.setItem('userId', this.userId);
 
     this.emailUpdateSubject.next();
+    this.userNameUpdateSubject.next();
   }
   setName(name: string){
     localStorage.setItem('userName', name);
     this.userName = name;
+    this.userNameUpdateSubject.next();
   }
 
 
