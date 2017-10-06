@@ -1,3 +1,5 @@
+
+* try using popper js for review item info popovers
 * button that allows users to 'login as already registered user' - this is a hard one. this is required because if someone tries to use their account on someones comp who hasnt registered yet, then if the new user uses the 'register email' feature -> then all reviews done by the old user will be now allocated to the new user that just 'registered'. problem with this is that its important but very unlikely.
 
 

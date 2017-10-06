@@ -3,7 +3,6 @@ import { Presentation, Speaker, ViewObject } from '../../miscellaneous/type-defi
 import { ReviewsService } from '../../services/reviews.service';
 import { UserService } from '../../services/user.service';
 import { ViewService } from '../../services/view.service';
-import * as moment from 'moment';
 
 
 @Component({
@@ -14,7 +13,7 @@ export class SelectionMenuComponent implements OnInit {
 
   presentationsList: Presentation[];
   registeredEmail: string;
-  isCollapsed: false;
+  isCollapsed: Boolean = false;
 
   constructor(
     private reviewService: ReviewsService,

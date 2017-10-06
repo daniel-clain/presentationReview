@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PopoverModule, CollapseModule, ModalModule, RatingModule, AccordionModule } from 'ngx-bootstrap';
-import { FileSelectDirective } from 'ng2-file-upload';
 
 import { ReviewsService } from './services/reviews.service';
 import { UserService } from './services/user.service';
@@ -38,8 +37,7 @@ import { IdToDatePipe } from './miscellaneous/id-to-date.pipe';
     SpeakerRowComponent,
     PresentationHistoryComponent,
     BackButtonComponent,
-    IdToDatePipe,
-    FileSelectDirective
+    IdToDatePipe
   ],
   imports: [
     BrowserModule,

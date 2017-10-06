@@ -12,8 +12,8 @@ export class SpeakerRowComponent implements OnInit {
 
   @Input() presentation: Presentation;
   @Input() speaker: Speaker;
-  claimedBySomeoneElse: Boolean = false;
-  claimedByUser: Boolean = false;
+  claimedBySomeoneElse: boolean = false;
+  claimedByUser: boolean = false;
 
   constructor(
     private userService: UserService,

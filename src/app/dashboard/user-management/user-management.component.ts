@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { FileUploader } from 'ng2-file-upload';
+// import { FileUploader } from 'ng2-file-upload';
 
 import { ViewObject, Presentation, Speaker, Review } from '../../miscellaneous/type-definitions';
 import { UserService } from '../../services/user.service';
@@ -14,7 +14,7 @@ import { ViewService } from '../../services/view.service';
 export class UserManagementComponent implements OnInit{
 
   registeredEmail: string;
-  uploader: FileUploader = new FileUploader({url: 'http://localhost:4000/upload', queueLimit: 1, isHTML5: true});
+  // uploader: FileUploader = new FileUploader({url: 'http://localhost:4000/upload', queueLimit: 1, isHTML5: true});
 
   constructor(private reviewService: ReviewsService,
               private viewService: ViewService,
@@ -78,8 +78,8 @@ export class UserManagementComponent implements OnInit{
   uploadProfileImage(){
     alert('Feature is in development');
     if (!true){
-      const file = this.uploader.queue[0];
-      file.upload();
+      // const file = this.uploader.queue[0];
+      // file.upload();
     }
 
   }
