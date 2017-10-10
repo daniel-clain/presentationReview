@@ -15,21 +15,17 @@ export class RecentPresentationsPipe implements PipeTransform {
       return;
     }
     return presentations.filter((presentation: Presentation) => {
-      return this.twoWorkDaysAgo(presentation);
-    });
-  }
-
-  twoWorkDaysAgo(presentation: Presentation): Presentation {
-    let date = moment();
-    let days = 2;
-    while (days > 0) {
-      date = date.subtract(1, 'days');
-      if (date.isoWeekday() !== 6 && date.isoWeekday() !== 7) {
-        days -= 1;
+      let date = moment();
+      let days = 2;
+      while (days > 0) {
+        date = date.subtract(1, 'days');
+        if (date.isoWeekday() !== 6 && date.isoWeekday() !== 7) {
+          days -= 1;
+        }
       }
-    }
-    if (moment(presentation.id) > moment(date) ) {
-      return presentation;
-    }
+      if (moment(presentation.id) > moment(date) ) {
+        return presentation;
+      }
+    });
   }
 }
