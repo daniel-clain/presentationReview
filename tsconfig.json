@@ -9,6 +9,9 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
+    "files": [
+      "node_modules/moment/moment.d.ts"
+    ],
     "typeRoots": [
       "node_modules/@types"
     ],
