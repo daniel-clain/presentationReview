@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
+import { environment } from '../../environments/environment';
 
 import * as io from 'socket.io-client';
 
 @Injectable()
 export class WebsocketService {
   socket;
-  url = 'localhost:4000';
 
   subjectList = {
     'serverDataUpdateBroadcast': new Subject(),
@@ -16,7 +16,8 @@ export class WebsocketService {
   };
 
   constructor() {
-    this.socket = io(this.url);
+    const url = (environment.production ? '10.103.2.140' : 'localhost') + ':4000';
+    this.socket = io(url);
     this.socket.on('sentFromServer', responseFromServer => this.handleResponseFromServer(responseFromServer));
   }
 

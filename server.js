@@ -191,12 +191,13 @@ broadcastUpdate = function(socket, presentationReviewData){
 
 getReviewItemsJson = function(){
   return new Promise(function(resolve) {
-    fs.readFile('/data/reviewItems.json', 'utf8', function readFileCallback(err, data){
+    fs.readFile('./data/reviewItems.json', 'utf8', function readFileCallback(err, data){
       if (err){
         //console.log(err);
         console.log('reviewItems.json not found in data folder, creating empty reviewItem object');
         resolve(demoReviewItems);
       } else {
+          console.log('reviewItems.json found');
         var obj = JSON.parse(data);
         resolve(obj);
       }});
@@ -206,12 +207,13 @@ getReviewItemsJson = function(){
 
 getPresentationReviewJson = function(){
   return new Promise(function(resolve) {
-    fs.readFile('/data/presentationReviewData.json', 'utf8', function readFileCallback(err, data){
+    fs.readFile('./data/presentationReviewData.json', 'utf8', function readFileCallback(err, data){
       if (err){
         // console.log(err);
-        console.log('reviewItems.json not found in data folder, creating empty reviewItem object');
+        console.log('presentationReviewData.json not found in data folder, creating empty reviewItem object');
         resolve(demoData);
       } else {
+          console.log('presentationReviewData.json found')
         var obj = JSON.parse(data);
         resolve(obj);
       }});
@@ -221,7 +223,7 @@ getPresentationReviewJson = function(){
 savePresentationReviewJson = function(presentationReviewData){
   return new Promise(function(resolve, reject) {
     var string = JSON.stringify(presentationReviewData,null,'\t');
-    fs.writeFile('/data/presentationReviewData.json',string,function(err) {
+    fs.writeFile('./data/presentationReviewData.json',string,function(err) {
       if(err) {
         reject('Server could not save to presentationReviewData.json\n Error: '+err);
         return console.error(err);
